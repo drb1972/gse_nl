@@ -24,11 +24,18 @@
                                 "ims",
                                 "mq",
                                 "zftp",
-                                "zmf",
-                                "ops",
+                                "ca7",
                                 "endevor",
                                 "endevor-location",
+                                "ebg",
                                 "fmp",
+                                "mat",
+                                "pma",
+                                "ops",
+                                "sysview",
+                                "sysview-format",
+                                "caview",
+                                "zmf",
                                 "base"
                             ]
                         },
@@ -593,7 +600,7 @@
                             "if": {
                                 "properties": {
                                     "type": {
-                                        "const": "zmf"
+                                        "const": "ca7"
                                     }
                                 }
                             },
@@ -601,108 +608,44 @@
                                 "properties": {
                                     "properties": {
                                         "type": "object",
-                                        "title": "Configuration profile for ChangeMan ZMF",
-                                        "description": "Configuration profile for ChangeMan ZMF",
+                                        "title": "CA7 Profile",
+                                        "description": "A CA7 profile is required to issue commands in the CA7 command group. The CA7 profile contains your host and port for the CA7 instance of your choice.",
                                         "properties": {
+                                            "host": {
+                                                "type": "string",
+                                                "description": "Host name of the CA7 API service that is running on the mainframe system."
+                                            },
+                                            "port": {
+                                                "type": "number",
+                                                "description": "Port for the CA7 API service that is running on the mainframe system."
+                                            },
+                                            "user": {
+                                                "type": "string",
+                                                "description": "User name for authenticating connections to the CA7 API service that is running on the mainframe system."
+                                            },
+                                            "password": {
+                                                "type": "string",
+                                                "description": "Password for authenticating connections to the CA7 API service that is running on the mainframe system."
+                                            },
+                                            "basePath": {
+                                                "type": "string",
+                                                "description": "The base path for your API mediation layer instance. Specify this option to prepend the base path to all resources when making REST requests. Do not specify this option if you are not using an API mediation layer."
+                                            },
                                             "protocol": {
                                                 "type": "string",
-                                                "description": "The protocol used to connect to your ChangeMan ZMF Rest API server (http or https)",
-                                                "default": "http",
+                                                "description": "Specifies protocol to use for CA7 connection (http or https).",
                                                 "enum": [
                                                     "http",
                                                     "https"
                                                 ]
                                             },
-                                            "host": {
-                                                "type": "string",
-                                                "description": "Host name of your ChangeMan ZMF REST API server"
-                                            },
-                                            "port": {
-                                                "type": "number",
-                                                "description": "Port number of your ChangeMan ZMF REST API server"
-                                            },
-                                            "user": {
-                                                "type": "string",
-                                                "description": "User name to authenticate to your ChangeMan ZMF REST API server"
-                                            },
-                                            "password": {
-                                                "type": "string",
-                                                "description": "Password to authenticate to your ChangeMan ZMF REST API server"
-                                            },
-                                            "basePath": {
-                                                "type": "string",
-                                                "description": "The base path used for connecting to your ChangeMan ZMF Rest API server",
-                                                "default": "/zmfrest"
-                                            },
                                             "rejectUnauthorized": {
                                                 "type": "boolean",
-                                                "description": "Reject self-signed certificates",
+                                                "description": "Reject self-signed certificates.",
                                                 "default": true
                                             }
                                         },
                                         "required": []
-                                    },
-                                    "secure": {
-                                        "items": {
-                                            "enum": [
-                                                "user",
-                                                "password"
-                                            ]
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        {
-                            "if": {
-                                "properties": {
-                                    "type": {
-                                        "const": "ops"
-                                    }
-                                }
-                            },
-                            "then": {
-                                "properties": {
-                                    "properties": {
-                                        "type": "object",
-                                        "title": "OPS Web Services session profile",
-                                        "description": "The OPS Web Services session profile schema, where you specify your session information and credentials",
-                                        "properties": {
-                                            "host": {
-                                                "type": "string",
-                                                "description": "The hostname of the server where OPS Web Services is running."
-                                            },
-                                            "port": {
-                                                "type": "number",
-                                                "description": "The port number for OPS Web Services."
-                                            },
-                                            "user": {
-                                                "type": "string",
-                                                "description": "Your z/OS user name used to authenticate to OPS Web Services"
-                                            },
-                                            "password": {
-                                                "type": "string",
-                                                "description": "Your z/OS password used to authenticate to OPS Web Services"
-                                            },
-                                            "protocol": {
-                                                "type": "string",
-                                                "description": "The protocol used for connecting to OPS Web Services",
-                                                "default": "https",
-                                                "enum": [
-                                                    "http",
-                                                    "https"
-                                                ]
-                                            },
-                                            "rejectUnauthorized": {
-                                                "type": "boolean",
-                                                "description": "If set to true, the server certificate is verified against the list of supplied CAs. If set to false, certificate verification is not performed.",
-                                                "default": true
-                                            },
-                                            "subsystem": {
-                                                "type": "string",
-                                                "description": "Specifies the subsystem id of the OPS/MVS instance to which commands will be directed."
-                                            }
-                                        }
                                     },
                                     "secure": {
                                         "items": {
@@ -854,6 +797,63 @@
                             "if": {
                                 "properties": {
                                     "type": {
+                                        "const": "ebg"
+                                    }
+                                }
+                            },
+                            "then": {
+                                "properties": {
+                                    "properties": {
+                                        "type": "object",
+                                        "title": "Endevor Bridge for Bridge Profile",
+                                        "description": "An EBG profile is required to issue commands in the ebg command group. The EBG profile contains the connection details for the Endevor Bridge for Git server of your choice.",
+                                        "properties": {
+                                            "protocol": {
+                                                "type": "string",
+                                                "description": "The Endevor Bridge for Git SCM protocol. \n\nDefault value: https",
+                                                "default": "https",
+                                                "enum": [
+                                                    "http",
+                                                    "https"
+                                                ]
+                                            },
+                                            "host": {
+                                                "type": "string",
+                                                "description": "The Endevor Bridge for Git hostname."
+                                            },
+                                            "port": {
+                                                "type": "number",
+                                                "description": "The Endevor Bridge for Git port."
+                                            },
+                                            "user": {
+                                                "type": "string",
+                                                "description": "Endevor Bridge for Git username (your git username)."
+                                            },
+                                            "token": {
+                                                "type": "string",
+                                                "description": "Git personal access token (it can be obtained from your Git Enterprise Server)."
+                                            },
+                                            "rejectUnauthorized": {
+                                                "type": "boolean",
+                                                "description": "Reject self-signed certificates. \n\nDefault value: false"
+                                            }
+                                        }
+                                    },
+                                    "secure": {
+                                        "items": {
+                                            "enum": [
+                                                "user",
+                                                "token"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "if": {
+                                "properties": {
+                                    "type": {
                                         "const": "fmp"
                                     }
                                 }
@@ -899,6 +899,410 @@
                                             "basePath": {
                                                 "type": "string",
                                                 "description": "The base path for your API mediation layer instance. Specify this option to prepend the base path to all FMP resources when making REST requests. Do not specify this option if you are not using an API mediation layer."
+                                            }
+                                        },
+                                        "required": []
+                                    },
+                                    "secure": {
+                                        "items": {
+                                            "enum": [
+                                                "user",
+                                                "password"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "if": {
+                                "properties": {
+                                    "type": {
+                                        "const": "mat"
+                                    }
+                                }
+                            },
+                            "then": {
+                                "properties": {
+                                    "properties": {
+                                        "type": "object",
+                                        "title": "MAT Analyze CLI profile schema",
+                                        "description": "MAT Analyze CLI profile schema.",
+                                        "properties": {
+                                            "protocol": {
+                                                "type": "string",
+                                                "description": "Specifies the protocol defined for the MAT REST API server (http or https).",
+                                                "default": "https",
+                                                "enum": [
+                                                    "http",
+                                                    "https"
+                                                ]
+                                            },
+                                            "hostname": {
+                                                "type": "string",
+                                                "description": "Specifies the hostname or IP address defined for the MAT REST API server (e.g. 127.0.0.0 or localhost)."
+                                            },
+                                            "port": {
+                                                "type": "number",
+                                                "description": "Specifies the server port (e.g. 8080)."
+                                            },
+                                            "username": {
+                                                "type": "string",
+                                                "description": "Your mainframe username."
+                                            },
+                                            "password": {
+                                                "type": "string",
+                                                "description": "Your mainframe password."
+                                            },
+                                            "basePath": {
+                                                "type": "string",
+                                                "description": "The base path for your API mediation layer instance. Specify this option to prepend the base path to all resources when making REST requests. Do not specify this option if you are not using an API mediation layer."
+                                            },
+                                            "rejectUnauthorized": {
+                                                "type": "boolean",
+                                                "description": "Reject self-signed certificates.",
+                                                "default": true
+                                            },
+                                            "listingDir": {
+                                                "type": "string",
+                                                "description": "Specifies the directory where you want to store the registered program listings (e.g. 'c:\\listings') for your immediate source code inspection. You can use the advantage of automated listing registration with MAT and listing retrieval through Endevor® footprints for Cobol, C/C++, and Assembler programs. When a source program listing is registered with MAT, you can enhance the histogram analysis data with the program listing details that pertain to the specific CSECT and program statement. The listing is transfered to the specified directory, which enables you to navigate directly to the line of the source code in you VS Code IDE and inspect the program statement. To use the listing retrieval option through Endevor® footprints, you need to have the Endevor® Web Services installed and configured and specify the Endevor® web server details in the MAT database configuration."
+                                            }
+                                        },
+                                        "required": []
+                                    },
+                                    "secure": {
+                                        "items": {
+                                            "enum": [
+                                                "username",
+                                                "password"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "if": {
+                                "properties": {
+                                    "type": {
+                                        "const": "pma"
+                                    }
+                                }
+                            },
+                            "then": {
+                                "properties": {
+                                    "properties": {
+                                        "type": "object",
+                                        "title": "MAT Detect CLI profile schema",
+                                        "description": "MAT Detect CLI profile schema.",
+                                        "properties": {
+                                            "job_acct": {
+                                                "type": "string",
+                                                "description": "Specifies z/OS TSO/E accounting information. Values: numeric characters (0-9)"
+                                            },
+                                            "job_class": {
+                                                "type": "string",
+                                                "description": "Your z/OS class information. Values: alphanumeric characters (A-Z, 0-9) "
+                                            },
+                                            "job_mclass": {
+                                                "type": "string",
+                                                "description": "Specifies the MSGCLASS parameter value and assigns the job log to the specified output class. The specified MSGCLASS value is used in all JCLs that PMA runs while you execute the commands. If you do not provide the job_mclass parameter, the default MSGCLASS value is used. Values: alphanumeric characters (A-Z, 0-9) ",
+                                                "default": "A"
+                                            },
+                                            "job_load": {
+                                                "type": "string",
+                                                "description": "Specifies the PMA loadlib data set name that you defined during the PMA customization (&HLQ.CEETLOAD) "
+                                            },
+                                            "job_pmahlq": {
+                                                "type": "string",
+                                                "description": "Specifies your PMA HLQ to access the KSDSALT, KSDSJOB, and KSDSEXC VSAM files that ensure the collection of the necessary data"
+                                            }
+                                        },
+                                        "required": [
+                                            "job_acct",
+                                            "job_class",
+                                            "job_mclass",
+                                            "job_load",
+                                            "job_pmahlq"
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "if": {
+                                "properties": {
+                                    "type": {
+                                        "const": "ops"
+                                    }
+                                }
+                            },
+                            "then": {
+                                "properties": {
+                                    "properties": {
+                                        "type": "object",
+                                        "title": "OPS Web Services session profile",
+                                        "description": "The OPS Web Services session profile schema, where you specify your session information and credentials",
+                                        "properties": {
+                                            "host": {
+                                                "type": "string",
+                                                "description": "The hostname of the server where OPS Web Services is running."
+                                            },
+                                            "port": {
+                                                "type": "number",
+                                                "description": "The port number for OPS Web Services."
+                                            },
+                                            "user": {
+                                                "type": "string",
+                                                "description": "Your z/OS user name used to authenticate to OPS Web Services"
+                                            },
+                                            "password": {
+                                                "type": "string",
+                                                "description": "Your z/OS password used to authenticate to OPS Web Services"
+                                            },
+                                            "protocol": {
+                                                "type": "string",
+                                                "description": "The protocol used for connecting to OPS Web Services",
+                                                "default": "https",
+                                                "enum": [
+                                                    "http",
+                                                    "https"
+                                                ]
+                                            },
+                                            "rejectUnauthorized": {
+                                                "type": "boolean",
+                                                "description": "If set to true, the server certificate is verified against the list of supplied CAs. If set to false, certificate verification is not performed.",
+                                                "default": true
+                                            },
+                                            "subsystem": {
+                                                "type": "string",
+                                                "description": "Specifies the subsystem id of the OPS/MVS instance to which commands will be directed."
+                                            }
+                                        }
+                                    },
+                                    "secure": {
+                                        "items": {
+                                            "enum": [
+                                                "user",
+                                                "password"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "if": {
+                                "properties": {
+                                    "type": {
+                                        "const": "sysview"
+                                    }
+                                }
+                            },
+                            "then": {
+                                "properties": {
+                                    "properties": {
+                                        "type": "object",
+                                        "title": "SYSVIEW REST API connection details",
+                                        "description": "The SYSVIEW session profile schema, where you specify your session information and credentials",
+                                        "properties": {
+                                            "host": {
+                                                "type": "string",
+                                                "description": "The hostname of the SYSVIEW REST API"
+                                            },
+                                            "port": {
+                                                "type": "number",
+                                                "description": "The port number of the SYSVIEW REST API"
+                                            },
+                                            "user": {
+                                                "type": "string",
+                                                "description": "Your z/OS username used to authenticate to the SYSVIEW REST API"
+                                            },
+                                            "password": {
+                                                "type": "string",
+                                                "description": "Your z/OS password used to authenticate to the SYSVIEW REST API"
+                                            },
+                                            "rejectUnauthorized": {
+                                                "type": "boolean",
+                                                "description": "If set, the server certificate is verified against the list of supplied CAs"
+                                            },
+                                            "ssid": {
+                                                "type": "string",
+                                                "description": "SSID of the SYSVIEW instance. Default value: GSVX",
+                                                "default": "GSVX"
+                                            },
+                                            "basePath": {
+                                                "type": "string",
+                                                "description": "The base path for your API mediation layer instance. Do not specify this option if you are not using an API mediation layer.",
+                                                "default": "/api/v1"
+                                            }
+                                        },
+                                        "required": []
+                                    },
+                                    "secure": {
+                                        "items": {
+                                            "enum": [
+                                                "user",
+                                                "password"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "if": {
+                                "properties": {
+                                    "type": {
+                                        "const": "sysview-format"
+                                    }
+                                }
+                            },
+                            "then": {
+                                "properties": {
+                                    "properties": {
+                                        "type": "object",
+                                        "title": "SYSVIEW display format details",
+                                        "description": "The SYSVIEW format profile schema, where you specify display settings",
+                                        "properties": {
+                                            "contextFields": {
+                                                "type": "array",
+                                                "description": "Context fields to display. Defaults to hiding all context"
+                                            },
+                                            "overview": {
+                                                "type": "boolean",
+                                                "description": "Display the overview section"
+                                            },
+                                            "info": {
+                                                "type": "boolean",
+                                                "description": "Display the information area, if any"
+                                            },
+                                            "pretty": {
+                                                "type": "boolean",
+                                                "description": "Display formatted data"
+                                            },
+                                            "blankIfZero": {
+                                                "type": "boolean",
+                                                "description": "Show a blank space instead of '0' values"
+                                            },
+                                            "truncate": {
+                                                "type": "boolean",
+                                                "description": "Truncate displays that are too wide for the console",
+                                                "default": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "if": {
+                                "properties": {
+                                    "type": {
+                                        "const": "caview"
+                                    }
+                                }
+                            },
+                            "then": {
+                                "properties": {
+                                    "properties": {
+                                        "type": "object",
+                                        "title": "Configuration profile for View",
+                                        "description": "Configuration profile for View",
+                                        "properties": {
+                                            "protocol": {
+                                                "type": "string",
+                                                "description": "Protocol of the target View REST API instance.",
+                                                "default": "https",
+                                                "enum": [
+                                                    "http",
+                                                    "https"
+                                                ]
+                                            },
+                                            "host": {
+                                                "type": "string",
+                                                "description": "Hostname or ip address of the target View REST API instance."
+                                            },
+                                            "port": {
+                                                "type": "number",
+                                                "description": "Port of the target View REST API instance.",
+                                                "default": 443
+                                            },
+                                            "basePath": {
+                                                "type": "string",
+                                                "description": "Context name of the target View REST API instance.",
+                                                "default": "web-viewer"
+                                            },
+                                            "user": {
+                                                "type": "string",
+                                                "description": "User name used to authenticate against the target View REST API instance."
+                                            },
+                                            "password": {
+                                                "type": "string",
+                                                "description": "Password used to authenticate against the target View REST API instance."
+                                            }
+                                        }
+                                    },
+                                    "secure": {
+                                        "items": {
+                                            "enum": [
+                                                "user",
+                                                "password"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "if": {
+                                "properties": {
+                                    "type": {
+                                        "const": "zmf"
+                                    }
+                                }
+                            },
+                            "then": {
+                                "properties": {
+                                    "properties": {
+                                        "type": "object",
+                                        "title": "Configuration profile for ChangeMan ZMF",
+                                        "description": "Configuration profile for ChangeMan ZMF",
+                                        "properties": {
+                                            "protocol": {
+                                                "type": "string",
+                                                "description": "The protocol used to connect to the ChangeMan ZMF Rest API server (http or https)",
+                                                "default": "http",
+                                                "enum": [
+                                                    "http",
+                                                    "https"
+                                                ]
+                                            },
+                                            "host": {
+                                                "type": "string",
+                                                "description": "Host name of the ChangeMan ZMF REST API server"
+                                            },
+                                            "port": {
+                                                "type": "number",
+                                                "description": "Port number of the ChangeMan ZMF REST API server"
+                                            },
+                                            "user": {
+                                                "type": "string",
+                                                "description": "User name to authenticate to the ChangeMan ZMF REST API server"
+                                            },
+                                            "password": {
+                                                "type": "string",
+                                                "description": "Password to authenticate to the ChangeMan ZMF REST API server"
+                                            },
+                                            "basePath": {
+                                                "type": "string",
+                                                "description": "The base path used for connecting to the ChangeMan ZMF Rest API server",
+                                                "default": "/zmfrest"
+                                            },
+                                            "rejectUnauthorized": {
+                                                "type": "boolean",
+                                                "description": "Reject self-signed certificates",
+                                                "default": true
                                             }
                                         },
                                         "required": []
@@ -1021,12 +1425,8 @@
                     "description": "Default zftp profile",
                     "type": "string"
                 },
-                "zmf": {
-                    "description": "Default zmf profile",
-                    "type": "string"
-                },
-                "ops": {
-                    "description": "Default ops profile",
+                "ca7": {
+                    "description": "Default ca7 profile",
                     "type": "string"
                 },
                 "endevor": {
@@ -1037,8 +1437,40 @@
                     "description": "Default endevor-location profile",
                     "type": "string"
                 },
+                "ebg": {
+                    "description": "Default ebg profile",
+                    "type": "string"
+                },
                 "fmp": {
                     "description": "Default fmp profile",
+                    "type": "string"
+                },
+                "mat": {
+                    "description": "Default mat profile",
+                    "type": "string"
+                },
+                "pma": {
+                    "description": "Default pma profile",
+                    "type": "string"
+                },
+                "ops": {
+                    "description": "Default ops profile",
+                    "type": "string"
+                },
+                "sysview": {
+                    "description": "Default sysview profile",
+                    "type": "string"
+                },
+                "sysview-format": {
+                    "description": "Default sysview-format profile",
+                    "type": "string"
+                },
+                "caview": {
+                    "description": "Default caview profile",
+                    "type": "string"
+                },
+                "zmf": {
+                    "description": "Default zmf profile",
                     "type": "string"
                 },
                 "base": {

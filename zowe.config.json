@@ -52,13 +52,8 @@
             },
             "secure": []
         },
-        "zmf": {
-            "type": "zmf",
-            "properties": {},
-            "secure": []
-        },
-        "ops": {
-            "type": "ops",
+        "ca7": {
+            "type": "ca7",
             "properties": {},
             "secure": []
         },
@@ -83,11 +78,64 @@
             },
             "secure": []
         },
+        "ebg": {
+            "type": "ebg",
+            "properties": {
+                "protocol": "https",
+                "host": "",
+                "port": 0
+            },
+            "secure": [
+                "user",
+                "token"
+            ]
+        },
         "fmp": {
             "type": "fmp",
             "properties": {
                 "port": 51914
             },
+            "secure": []
+        },
+        "mat": {
+            "type": "mat",
+            "properties": {},
+            "secure": []
+        },
+        "pma": {
+            "type": "pma",
+            "properties": {},
+            "secure": []
+        },
+        "ops": {
+            "type": "ops",
+            "properties": {},
+            "secure": []
+        },
+        "sysview": {
+            "type": "sysview",
+            "properties": {
+                "port": 0,
+                "ssid": "GSVX"
+            },
+            "secure": []
+        },
+        "sysview-format": {
+            "type": "sysview-format",
+            "properties": {},
+            "secure": []
+        },
+        "caview": {
+            "type": "caview",
+            "properties": {
+                "protocol": "https",
+                "port": 443
+            },
+            "secure": []
+        },
+        "zmf": {
+            "type": "zmf",
+            "properties": {},
             "secure": []
         },
         "base": {
@@ -207,11 +255,18 @@
         "ims": "ims",
         "mq": "mq",
         "zftp": "sr01.zftp",
-        "zmf": "zmf",
-        "ops": "sr01.ops",
+        "ca7": "ca7",
         "endevor": "sr01.endevor",
         "endevor-location": "marbles",
+        "ebg": "ebg",
         "fmp": "sr01.fmp",
+        "mat": "mat",
+        "pma": "pma",
+        "ops": "sr01.ops",
+        "sysview": "sysview",
+        "sysview-format": "sysview-format",
+        "caview": "caview",
+        "zmf": "zmf",
         "base": "base",
         "jclcheck": "sr01.jclcheck"
     },
