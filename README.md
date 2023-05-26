@@ -10,7 +10,9 @@ zowe db2 execute sql -q "SELECT * FROM EVENT.COLOR" --rfj > color.json
 zowe  fmp populate ds roddi01.lib.data -m test1 --lds roddi01.lib.copy --lm marbles --data ./data/marbles.json
 
 HB
-curl http://mstrsvw.lvn.broadcom.net:8000/hbscript/demo_orange?companies=1,2,3,4 > test.json 
+TRAD
+curl http://mstrsvw.lvn.broadcom.net:8000/hbscript/gse_ned_trad > trad1.txt 
+curl http://mstrsvw.lvn.broadcom.net:8000/hbscript/gse_ned_tradjson?companies=1,2,3,4 > trad2.json 
 
 zowe files list ds "roddi01.git.*" 
 zowe files list ds "roddi01.git.*" -a --rfj 
