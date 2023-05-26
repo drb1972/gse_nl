@@ -1,0 +1,49 @@
+{
+  "datos": [
+      {
+        "COLOR": "RUBY      ",
+        "INVENTORY": 0,
+        "COST": 0
+      },
+      {
+        "COLOR": "TURQUOISE ",
+        "INVENTORY": 25,
+        "COST": 5
+      },
+      {
+        "COLOR": "EMERALD   ",
+        "INVENTORY": 25,
+        "COST": 5
+      },
+      {
+        "COLOR": "SAPPHIRE  ",
+        "INVENTORY": 25,
+        "COST": 5
+      },
+      {
+        "COLOR": "AMETHYST  ",
+        "INVENTORY": 25,
+        "COST": 0
+      },
+      {
+        "COLOR": "SAND      ",
+        "INVENTORY": 1,
+        "COST": 1
+      },
+      {
+        "COLOR": "YELLOW    ",
+        "INVENTORY": 1,
+        "COST": 0
+      },
+      {
+        "COLOR": "BLUE      ",
+        "INVENTORY": 1,
+        "COST": 0
+      },
+      {
+        "COLOR": "LAVENDER  ",
+        "INVENTORY": 2,
+        "COST": 0
+      }
+    ]
+}
