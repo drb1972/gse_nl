@@ -4,7 +4,7 @@
 zowe samples:
 
 zowe zos-jobs submit local-file "MARBDB2.jcl" --vasc
-zowe db2 execute sql -q "SELECT * FROM EVENT.MARBLE" --rfj 
+zowe db2 execute sql -q "SELECT * FROM EVENT.MARBLE" --rfj
 zowe db2 execute sql -q "SELECT * FROM EVENT.COLOR" --rfj > color.json  
 
 zowe  fmp populate ds roddi01.lib.data -m test1 --lds roddi01.lib.copy --lm marbles --data ./data/marbles.json
