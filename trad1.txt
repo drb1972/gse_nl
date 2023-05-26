@@ -1,0 +1,4 @@
+company = IBM
+now     = 00163.00
+held    = 0251
+value   = 000040913.00
