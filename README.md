@@ -1,8 +1,16 @@
 # gse_nl
 
-zowe files list ds "roddi01.git.*" 
+zowe
+----
 
-Zowe DB2
+zowe.cofig.json file
+
+zowe files list ds "roddi01.lib.*" 
+
+Zowe DB2 (video: zowe_db2)
+--------
+MARBDB2.jcl
+
 zowe jobs submit local-file "MARBDB2.jcl" --vasc
 zowe db2 execute sql -q "SELECT * FROM EVENT.MARBLE" 
 zowe db2 execute sql -q "SELECT * FROM EVENT.MARBLE" --rfj
@@ -10,16 +18,23 @@ zowe db2 execute sql -q "SELECT * FROM EVENT.MARBLE" --rfj > marble.json
 zowe db2 execute sql -q "SELECT * FROM EVENT.COLOR" --rfj > color.json 
 
 
-Zowe FMP
+Zowe FMP (video: zowe_fmp)
+--------
+./data/marbles.json
+zowe explorer: copy, data sets
 
 zowe  fmp populate ds roddi01.lib.data -m marbles1 --lds roddi01.lib.copy --lm marbles --data ./data/marbles.json
 
 
-HB
+HB (video: hb_total)
+-- 
+CICS MBS Maps
 
+Eclipse:
 http://mstrsvw.lvn.broadcom.net:8000/hbscript/helloworld 
 
 TRAD
+
 http://mstrsvw.lvn.broadcom.net:8000/hbscript/index.html  
 
 curl http://mstrsvw.lvn.broadcom.net:8000/hbscript/gse_ned_trad  
