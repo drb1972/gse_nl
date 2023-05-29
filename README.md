@@ -1,13 +1,18 @@
 # gse_nl
 
+zowe files list ds "roddi01.git.*" 
 
-zowe samples:
-
-zowe zos-jobs submit local-file "MARBDB2.jcl" --vasc
+Zowe DB2
+zowe jobs submit local-file "MARBDB2.jcl" --vasc
+zowe db2 execute sql -q "SELECT * FROM EVENT.MARBLE" 
 zowe db2 execute sql -q "SELECT * FROM EVENT.MARBLE" --rfj
-zowe db2 execute sql -q "SELECT * FROM EVENT.COLOR" --rfj > color.json  
+zowe db2 execute sql -q "SELECT * FROM EVENT.MARBLE" --rfj > marble.json  
+zowe db2 execute sql -q "SELECT * FROM EVENT.COLOR" --rfj > color.json 
 
-zowe  fmp populate ds roddi01.lib.data -m test1 --lds roddi01.lib.copy --lm marbles --data ./data/marbles.json
+
+Zowe FMP
+
+zowe  fmp populate ds roddi01.lib.data -m marbles1 --lds roddi01.lib.copy --lm marbles --data ./data/marbles.json
 
 HB
 TRAD
@@ -15,7 +20,10 @@ curl http://mstrsvw.lvn.broadcom.net:8000/hbscript/gse_ned_trad > trad1.txt
 curl http://mstrsvw.lvn.broadcom.net:8000/hbscript/gse_ned_tradjson?companies=1,2,3,4 > trad2.json 
 
 zowe files list ds "roddi01.git.*" 
+zowe files list ds "roddi01.git.*" -a
 zowe files list ds "roddi01.git.*" -a --rfj 
+zowe files list am "roddi01.git.jcl" 
+zowe files list am "roddi01.git.jcl" -a
 
 
 More samples:
