@@ -14,10 +14,20 @@ Zowe FMP
 
 zowe  fmp populate ds roddi01.lib.data -m marbles1 --lds roddi01.lib.copy --lm marbles --data ./data/marbles.json
 
+
 HB
+
+http://mstrsvw.lvn.broadcom.net:8000/hbscript/helloworld 
+
 TRAD
-curl http://mstrsvw.lvn.broadcom.net:8000/hbscript/gse_ned_trad > trad1.txt 
-curl http://mstrsvw.lvn.broadcom.net:8000/hbscript/gse_ned_tradjson?companies=1,2,3,4 > trad2.json 
+http://mstrsvw.lvn.broadcom.net:8000/hbscript/index.html  
+
+curl http://mstrsvw.lvn.broadcom.net:8000/hbscript/gse_ned_trad  
+curl http://mstrsvw.lvn.broadcom.net:8000/hbscript/gse_ned_tradjson?companies=1,2,3,4
+curl http://mstrsvw.lvn.broadcom.net:8000/hbscript/gse_ned_tradjson?companies=1,2,3,4 > trad.json 
+
+
+More zowe
 
 zowe files list ds "roddi01.git.*" 
 zowe files list ds "roddi01.git.*" -a
